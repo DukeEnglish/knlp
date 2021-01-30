@@ -19,7 +19,7 @@ def sentiment(sentence, function_name="sentiment_snownlp"):
         sentence: string
         function_name: string
 
-    Returns: list of word
+    Returns: float
 
     """
     sentiment_analyst = getattr(SentimentAnalysis, function_name, None)

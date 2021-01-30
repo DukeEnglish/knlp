@@ -24,16 +24,16 @@ class NER(object):
     @classmethod
     def jieba_ner(cls, sentence):
         """
-        return result cut by jieba
+        return result tagged by jieba
 
         Args:
             sentence: string
 
-        Returns: list of string
+        Returns: list of (word, flag) pair
 
         """
         res = []
-        words = pseg.cut("sentence")  # jieba默认模式
+        words = pseg.cut(sentence)  # jieba默认模式
         for word, flag in words:
             print('%s %s' % (word, flag))
             res.append((word, flag))

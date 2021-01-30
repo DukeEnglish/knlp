@@ -4,9 +4,9 @@
 # File Name: __init__.py
 # Author: Junyi Li
 # Mail: 4ljy@163.com
-# Created Time: 2021-01-27
-# Description:
+# Created Time: 2021-01-29
+# Description: 
 #-----------------------------------------------------------------------#
-from cnlp.seq_sentiment.inference import sentiment
+from cnlp.information_extract.inference import get_keyword, get_key_sentences
 
-__all__ = ["sentiment"]
+__all__ = ["get_keyword", "get_key_sentences"]

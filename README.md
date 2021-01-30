@@ -19,9 +19,10 @@ pip install cnlp
 ```
 
 # 参考并致谢
-snownlp
-jieba
-textblob
+- snownlp
+- jieba
+- textblob
+- https://www.letiantian.me/2014-06-10-pagerank/
 
 # 评估结果
 离线评估
