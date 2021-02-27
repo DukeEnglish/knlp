@@ -31,14 +31,14 @@ class Installation(install):
 
 
 setuptools.setup(
-    name='cnlp',
+    name='knlp',
     version='0.1.0',
     author='Junyi Li',
     author_email='ljyduke@gmail.com',
-    description='Python toolkit for Chinese Language Processing.',
+    description='KUAI SU(Quickly use) Python toolkit for Chinese Language Processing.',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/DukeEnglish/cnlp',
+    url='https://github.com/DukeEnglish/knlp',
     package_data={'': ['*.md', '*.txt', '*.marshal', '*.marshal.3']},
     include_package_data=True,
     packages=setuptools.find_packages(exclude=('test*', )),

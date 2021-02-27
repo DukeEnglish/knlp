@@ -7,6 +7,6 @@
 # Created Time: 2021-01-29
 # Description: 
 #-----------------------------------------------------------------------#
-from cnlp.information_extract.inference import get_keyword, get_key_sentences
+from knlp.information_extract.inference import get_keyword, get_key_sentences
 
 __all__ = ["get_keyword", "get_key_sentences"]

@@ -8,13 +8,13 @@
 # Description: 
 # -----------------------------------------------------------------------#
 
-from cnlp import Cnlp
+from knlp import Knlp
 
 
 def test_all():
-    with open("cnlp/data/pytest_data.txt") as f:
+    with open("knlp/data/pytest_data.txt") as f:
         text = f.read()
-    res = Cnlp(text)
+    res = Knlp(text)
     print("seg_result is", res.seg_result)
     print("ner_result is", res.ner_result)
     print("sentiment score is", res.sentiment)

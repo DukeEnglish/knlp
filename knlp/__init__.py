@@ -7,12 +7,12 @@
 # Created Time: 2021-01-27
 # Description: 
 # -----------------------------------------------------------------------#
-from cnlp.seq_labeling import seg, ner, evaluation_seg_files, evaluation_seg
-from cnlp.seq_sentiment import sentiment
-from cnlp.information_extract import get_keyword, get_key_sentences
+from knlp.seq_labeling import seg, ner, evaluation_seg_files, evaluation_seg
+from knlp.seq_sentiment import sentiment
+from knlp.information_extract import get_keyword, get_key_sentences
 
 
-class Cnlp(object):
+class Knlp(object):
     """
     This class is designed for all the basic caller
 

@@ -8,7 +8,7 @@
 # Description: 
 # -----------------------------------------------------------------------#
 
-from cnlp.information_extract.keywords_extraction import TextRank4Keyword, TextRank4Sentence
+from knlp.information_extract.keywords_extraction import TextRank4Keyword, TextRank4Sentence
 
 
 def get_keyword(text, window=5, num=20, word_min_len=2, need_key_phrase=True):

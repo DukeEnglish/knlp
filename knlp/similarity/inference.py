@@ -8,7 +8,7 @@
 # Description: 
 #-----------------------------------------------------------------------#
 
-from cnlp.similarity.similarity_calculator import SimilarityCalculator
+from knlp.similarity.similarity_calculator import SimilarityCalculator
 
 
 def sentiment(sentence1, sentence2, function_name="similarity_snownlp"):

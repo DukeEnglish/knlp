@@ -9,8 +9,8 @@
 #-----------------------------------------------------------------------#
 
 
-from cnlp.information_extract.keywords_extraction import util
-from cnlp.information_extract.keywords_extraction.Segmentation import Segmentation
+from knlp.information_extract.keywords_extraction import util
+from knlp.information_extract.keywords_extraction.Segmentation import Segmentation
 
 
 class TextRank4Keyword(object):

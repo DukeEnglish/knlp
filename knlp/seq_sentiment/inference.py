@@ -8,7 +8,7 @@
 # Description: 
 # -----------------------------------------------------------------------#
 
-from cnlp.seq_sentiment.sentiment import SentimentAnalysis
+from knlp.seq_sentiment.sentiment import SentimentAnalysis
 
 
 def sentiment(sentence, function_name="sentiment_snownlp"):

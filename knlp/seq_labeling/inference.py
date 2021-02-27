@@ -8,8 +8,8 @@
 # Description: 
 # -----------------------------------------------------------------------#
 
-from cnlp.seq_labeling.seg import Segmentor
-from cnlp.seq_labeling.ner import NER
+from knlp.seq_labeling.seg import Segmentor
+from knlp.seq_labeling.ner import NER
 
 
 def seg(sentence, function_name="jieba_cut"):
