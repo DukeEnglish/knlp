@@ -7,7 +7,7 @@
 # Created Time: 2021-01-27
 # Description: 
 # -----------------------------------------------------------------------#
-from cnlp.seq_labeling import seg, ner
+from cnlp.seq_labeling import seg, ner, evaluation_seg_files, evaluation_seg
 from cnlp.seq_sentiment import sentiment
 from cnlp.information_extract import get_keyword, get_key_sentences
 
@@ -85,6 +85,33 @@ class Cnlp(object):
         """
         return get_key_sentences(self.data)
 
+    @staticmethod
+    def evaluation_segment(seg_result_gold, seg_result_pred, seg_symbol=" "):
+        """
+
+        Args:
+            seg_result_gold: string, seg result separated by seg_symbol, gold_result
+            seg_result_pred: string, seg result separated by seg_symbol, predicted_result
+            seg_symbol: string,
+
+        Returns: precision, recall, f1, all of them are float
+
+        """
+        return evaluation_seg(seg_result_gold, seg_result_pred, seg_symbol)
+
+    @staticmethod
+    def evaluation_segment_file(gold_file_name, pred_file_name, seg_symbol=" "):
+        """
+
+        Args:
+            gold_file_name: string, seg result separated by seg_symbol, gold_file_name
+            pred_file_name: string, seg result separated by seg_symbol, pred_file_name
+            seg_symbol: string,
+
+        Returns: precision, recall, f1, all of them are float
+
+        """
+        return evaluation_seg_files(gold_file_name, pred_file_name, seg_symbol)
     # @property
     # def sentences(self):
     #     return normal.get_sentences(self.doc)

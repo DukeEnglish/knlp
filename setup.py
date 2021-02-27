@@ -39,6 +39,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/DukeEnglish/cnlp',
+    package_data={'': ['*.md', '*.txt', '*.marshal', '*.marshal.3']},
     include_package_data=True,
     packages=setuptools.find_packages(exclude=('test*', )),
     classifiers=[

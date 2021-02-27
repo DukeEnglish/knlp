@@ -9,5 +9,6 @@
 #-----------------------------------------------------------------------#
 
 from cnlp.seq_labeling.inference import seg, ner
+from cnlp.seq_labeling.utils import evaluation_seg, evaluation_seg_files
 
-__all__ = ["seg", "ner"]
+__all__ = ["seg", "ner", "evaluation_seg", "evaluation_seg_files"]
