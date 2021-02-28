@@ -64,10 +64,3 @@ c榜单评估结果
 
 
 ### 第三阶段：需要自己实现各个模块的深度学习部分，之所以放在这里是因为这个的迭代是一个长期工作，会有很多新的模型出来，随便follow一下就会有一次更新，不如直接放在最后
-
-上传的指令：
-```bash
-python setup.py sdist bdist_wheel
-pip install certifi --upgrade
-twine upload dist/*
-```
