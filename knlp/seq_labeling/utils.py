@@ -45,7 +45,7 @@ def evaluation_seg(seg_result_gold, seg_result_pred, seg_symbol=" "):
     precision = len(res) / len(idx_pred)
     recall = len(res) / len(idx_gold)
     f1 = 2 * precision * recall / (precision + recall)
-    print(f'precision: {precision}, recall: {recall}, f1: {f1}')
+    # print(f'precision: {precision}, recall: {recall}, f1: {f1}')
     return precision, recall, f1
 
 
