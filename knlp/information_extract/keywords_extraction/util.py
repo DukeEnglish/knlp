@@ -5,7 +5,7 @@
 # Author: Junyi Li
 # Mail: 4ljy@163.com
 # Created Time: 2019-07-03
-# Description: 
+# Description:
 # -----------------------------------------------------------------------#
 
 import os
@@ -21,7 +21,8 @@ allow_speech_tags = ['an', 'i', 'j', 'l', 'n', 'nr', 'nrfg', 'ns', 'nt', 'nz', '
 text_type = str
 string_types = (str,)
 
-def as_text(v):  ## 生成unicode字符串
+
+def as_text(v):  # 生成unicode字符串
     if v is None:
         return None
     elif isinstance(v, bytes):
@@ -51,7 +52,7 @@ def combine(word_list, window=2):
     word_list  --  list of str, 由单词组成的列表。
     windows    --  int, 窗口大小。
     """
-    if window < 2: window = 2
+    if window < 2: window = 2  #NOQA
     for x in range(1, window):
         if x >= len(word_list):
             break

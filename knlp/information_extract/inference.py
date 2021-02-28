@@ -5,7 +5,7 @@
 # Author: Junyi Li
 # Mail: 4ljy@163.com
 # Created Time: 2021-01-30
-# Description: 
+# Description:
 # -----------------------------------------------------------------------#
 
 from knlp.information_extract.keywords_extraction import TextRank4Keyword, TextRank4Sentence

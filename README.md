@@ -20,6 +20,28 @@ pip install knlp
 # FROM GITHUB SOURCE CODE
 pip install git+https://github.com/DukeEnglish/knlp.git
 ```
+# 示例方法
+```python
+from knlp import Knlp
+
+def test_all():
+    with open("knlp/data/pytest_data.txt") as f:
+        text = f.read()
+    res = Knlp(text)
+    print("seg_result is", res.seg_result)
+    print("ner_result is", res.ner_result)
+    print("sentiment score is", res.sentiment)
+    print("key_words are", res.key_words)
+    print("key sentences are", res.key_sentences)
+    gt_string = '就读 于 中国人民大学 电视 上 的 电影 节目 项目 的 研究 角色 本人 将 会 参与 配音'
+    pred_string = '就读 于 中国 人民 大学 电视 上 的 电影 节目 项 目的 研究 角色 本人 将 会 参与 配音'
+    print("evaluation res are", res.evaluation_segment(gt_string, pred_string))
+    abs_path_to_gold_file = ''
+    abs_path_to_pred_file = ''
+    gt_file_name = f'{abs_path_to_gold_file}'
+    pred_file_name = f'{abs_path_to_pred_file}'
+    print("evaluation file res are", res.evaluation_segment_file(gt_file_name, pred_file_name))
+```
 
 # 参考并致谢
 - snownlp
