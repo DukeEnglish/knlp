@@ -16,6 +16,9 @@ pkg中提供了inference这个方法，主要是调用各种能力进行inferenc
 # 安装方式
 ```
 pip install knlp
+
+# FROM GITHUB SOURCE CODE
+pip install git+https://github.com/DukeEnglish/knlp.git
 ```
 
 # 参考并致谢
