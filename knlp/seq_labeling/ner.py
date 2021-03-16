@@ -5,7 +5,7 @@
 # Author: Junyi Li
 # Mail: 4ljy@163.com
 # Created Time: 2021-01-27
-# Description: 
+# Description:
 # -----------------------------------------------------------------------#
 
 import jieba.posseg as pseg

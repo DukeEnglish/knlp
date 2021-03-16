@@ -7,9 +7,6 @@
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-import networkx as nx
-import numpy as np
-
 from . import util
 from .Segmentation import Segmentation
 
@@ -23,7 +20,6 @@ class TextRank4Sentence(object):
         Keyword arguments:
         stop_words_file  --  str，停止词文件路径，若不是str则是使用默认停止词文件
         delimiters       --  默认值是`?!;？！。；…\n`，用来将文本拆分为句子。
-        
         Object Var:
         self.sentences               --  由句子组成的列表。
         self.words_no_filter         --  对sentences中每个句子分词而得到的两级列表。

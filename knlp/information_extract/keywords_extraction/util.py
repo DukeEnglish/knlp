@@ -8,11 +8,10 @@
 # Description:
 # -----------------------------------------------------------------------#
 
-import os
 import math
+
 import networkx as nx
 import numpy as np
-import sys
 
 sentence_delimiters = ['?', '!', ';', '？', '！', '。', '；', '……', '…', '\n']
 allow_speech_tags = ['an', 'i', 'j', 'l', 'n', 'nr', 'nrfg', 'ns', 'nt', 'nz', 't', 'v', 'vd', 'vn', 'eng']
@@ -52,7 +51,7 @@ def combine(word_list, window=2):
     word_list  --  list of str, 由单词组成的列表。
     windows    --  int, 窗口大小。
     """
-    if window < 2: window = 2  #NOQA
+    if window < 2: window = 2  # NOQA
     for x in range(1, window):
         if x >= len(word_list):
             break
@@ -105,14 +104,14 @@ def sort_words(vertex_source, edge_source, window=2, page_rank_config=None):
     words_number = 0
     for word_list in _vertex_source:
         for word in word_list:
-            if not word in word_index:
+            if word not in word_index:
                 word_index[word] = words_number
                 index_word[words_number] = word
                 # MAP WORD TO AN INDEX
                 words_number += 1
 
     graph = np.zeros((words_number, words_number))  # words_number X words_number MATRIX
-    ## unclear
+    # unclear
     for word_list in _edge_source:
         for w1, w2 in combine(word_list, window):
             if w1 in word_index and w2 in word_index:

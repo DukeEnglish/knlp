@@ -5,15 +5,16 @@
 # Author: Junyi Li
 # Mail: 4ljy@163.com
 # Created Time: 2019-07-03
-# Description: 
+# Description:
 # -----------------------------------------------------------------------#
 
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-import jieba.posseg as pseg
 import codecs
 import os
+
+import jieba.posseg as pseg
 
 from . import util
 
@@ -54,7 +55,7 @@ class WordSegmentation(object):
         text = util.as_text(text)
         jieba_result = pseg.cut(text)
 
-        if use_speech_tags_filter == True:
+        if use_speech_tags_filter:
             jieba_result = [w for w in jieba_result if w.flag in self.default_speech_tag_filter]
         else:
             jieba_result = [w for w in jieba_result]

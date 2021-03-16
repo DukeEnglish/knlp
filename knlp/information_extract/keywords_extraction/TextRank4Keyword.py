@@ -1,12 +1,12 @@
 #!/usr/bin/python
-#-*- coding:UTF-8 -*-
-#-----------------------------------------------------------------------#
+# -*- coding:UTF-8 -*-
+# -----------------------------------------------------------------------#
 # File Name: TextRank4Keyword.py
 # Author: Junyi Li
 # Mail: 4ljy@163.com
 # Created Time: 2019-07-03
-# Description: 
-#-----------------------------------------------------------------------#
+# Description:
+# -----------------------------------------------------------------------#
 
 
 from knlp.information_extract.keywords_extraction import util
@@ -15,9 +15,9 @@ from knlp.information_extract.keywords_extraction.Segmentation import Segmentati
 
 class TextRank4Keyword(object):
 
-    def __init__(self, stop_words_file=None, label_set = [],
+    def __init__(self, stop_words_file=None, label_set=[],
                  allow_speech_tags=util.allow_speech_tags,
-                 delimiters=util.sentence_delimiters,):
+                 delimiters=util.sentence_delimiters, ):
         """
         Keyword arguments:
         stop_words_file  --  str，指定停止词文件路径（一行一个停止词），若为其他类型，则使用默认停止词文件
@@ -40,7 +40,6 @@ class TextRank4Keyword(object):
         self.words_no_stop_words = None
         self.words_all_filters = None
         self.label_set = label_set
-
 
     def analyze(self, text,
                 window=2,
@@ -120,7 +119,7 @@ class TextRank4Keyword(object):
                     one.append(word)
                 else:
                     if len(one) > 1:
-                        keyphrases.add(''.join(one)) # concat在一起
+                        keyphrases.add(''.join(one))  # concat在一起
                     if len(one) == 0:
                         continue
                     else:
@@ -135,7 +134,5 @@ class TextRank4Keyword(object):
 
 if __name__ == '__main__':
     # 引入关键词表的概念
-
-
 
     pass

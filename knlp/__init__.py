@@ -5,11 +5,11 @@
 # Author: Junyi Li
 # Mail: 4ljy@163.com
 # Created Time: 2021-01-27
-# Description: 
+# Description:
 # -----------------------------------------------------------------------#
+from knlp.information_extract import get_keyword, get_key_sentences
 from knlp.seq_labeling import seg, ner, evaluation_seg_files, evaluation_seg
 from knlp.seq_sentiment import sentiment
-from knlp.information_extract import get_keyword, get_key_sentences
 
 
 class Knlp(object):

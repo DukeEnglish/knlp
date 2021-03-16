@@ -5,11 +5,11 @@
 # Author: Junyi Li
 # Mail: 4ljy@163.com
 # Created Time: 2021-01-27
-# Description: 
+# Description:
 # -----------------------------------------------------------------------#
 
-from knlp.seq_labeling.seg import Segmentor
 from knlp.seq_labeling.ner import NER
+from knlp.seq_labeling.seg import Segmentor
 
 
 def seg(sentence, function_name="jieba_cut"):

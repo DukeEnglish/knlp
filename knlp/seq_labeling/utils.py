@@ -5,11 +5,11 @@
 # Author: Junyi Li
 # Mail: 4ljy@163.com
 # Created Time: 2021-01-28
-# Description: 
+# Description:
 # -----------------------------------------------------------------------#
 
 
-def word2pair(segment_result, seg_symbol=" "):
+def get_word2pair(segment_result, seg_symbol=" "):
     """
     return idx pair for segment_result
     Args:
@@ -34,13 +34,13 @@ def evaluation_seg(seg_result_gold, seg_result_pred, seg_symbol=" "):
     Args:
         seg_result_gold: string, seg result separated by seg_symbol, gold_result
         seg_result_pred: string, seg result separated by seg_symbol, predicted_result
-        seg_symbol: string,
+        seg_symbol: string, separator for seg result
 
     Returns: precision, recall, f1, all of them are float
 
     """
-    idx_gold = word2pair(seg_result_gold, seg_symbol)
-    idx_pred = word2pair(seg_result_pred, seg_symbol)
+    idx_gold = get_word2pair(seg_result_gold, seg_symbol)
+    idx_pred = get_word2pair(seg_result_pred, seg_symbol)
     res = [x for x in idx_gold if x in idx_pred]
     precision = len(res) / len(idx_pred)
     recall = len(res) / len(idx_gold)
@@ -65,6 +65,3 @@ def evaluation_seg_files(gold_file_name, pred_file_name, seg_symbol=" "):
     with open(pred_file_name) as g:
         pred_res_string = seg_symbol.join(g.readlines())
     return evaluation_seg(gold_res_string, pred_res_string, seg_symbol)
-
-# if __name__ == '__main__':
-#     evaluation()

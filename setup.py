@@ -5,7 +5,7 @@
 # Author: Junyi Li
 # Mail: 4ljy@163.com
 # Created Time: 2021-01-30
-# Description: 
+# Description:
 # -----------------------------------------------------------------------#
 
 
@@ -13,16 +13,13 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import setuptools
-
-from setuptools import setup
-from setuptools.command.develop import develop
-from setuptools.command.install import install
-from subprocess import call
-from version import __version__
 import distutils.text_file
 from pathlib import Path
 from typing import List
+
+import setuptools
+
+from version import __version__
 
 with open('README.md', 'r') as f:
     long_description = f.read()
