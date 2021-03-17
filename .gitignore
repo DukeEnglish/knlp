@@ -5,3 +5,4 @@ __pycache__/
 build/
 .pytest_cache/
 dist/
+dev_log/
