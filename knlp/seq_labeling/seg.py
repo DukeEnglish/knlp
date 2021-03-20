@@ -33,3 +33,45 @@ class Segmentor(object):
 
         """
         return jieba.lcut(sentence)
+
+    @classmethod
+    def hmm_seg(cls, sentence, model):
+        """
+        return result cut by hmm
+
+        Args:
+            sentence: string
+            model:
+
+        Returns: list of string
+
+        """
+        pass
+
+    @classmethod
+    def crf_seg(cls, sentence, model):
+        """
+        return result cut by crf
+
+        Args:
+            sentence: string
+            model:
+
+        Returns: list of string
+
+        """
+        pass
+
+    @classmethod
+    def trie_seg(cls, sentence, model):
+        """
+        return result cut by trie
+
+        Args:
+            sentence: string
+            model:
+
+        Returns: list of string
+
+        """
+        pass
