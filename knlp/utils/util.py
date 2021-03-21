@@ -42,7 +42,7 @@ def funtion_time_cost(function):
         print(f"time cost is {time_end - time_start} and running over")
         return res
 
-    return wrapper()
+    return wrapper
 
 
 class ShowProcess:
