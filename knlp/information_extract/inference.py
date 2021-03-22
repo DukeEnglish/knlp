@@ -38,7 +38,6 @@ def get_keyword(text, window=5, num=20, word_min_len=2, need_key_phrase=True):
 
     if need_key_phrase:
         for phrase in tr4w.get_keyphrases(keywords_num=10, min_occur_num=2):
-            print(phrase)
             output['key_phrase'].append(phrase)
 
     return output
