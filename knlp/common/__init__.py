@@ -1,11 +1,9 @@
-#!/usr/bin/python
+# !/usr/bin/python
 # -*- coding:UTF-8 -*-
 # -----------------------------------------------------------------------#
-# File Name: version.py
+# File Name: __init__.py
 # Author: Junyi Li
 # Mail: 4ljy@163.com
-# Created Time: 2021-01-27
+# Created Time: 2021-03-20
 # Description:
 # -----------------------------------------------------------------------#
-
-__version__ = "0.2.0"

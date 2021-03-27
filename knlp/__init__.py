@@ -36,6 +36,19 @@ class Knlp(object):
         return seg(self.data, function_name=function_name)
 
     @property
+    def seg_result_hmm(self, function_name="hmm_seg"):
+        """
+        This function return the result cut by seg defined in seq_labeling
+
+        Args:
+            function_name: string
+
+        Returns: list of words
+
+        """
+        return seg(self.data, function_name=function_name)
+
+    @property
     def ner_result(self, function_name="jieba_ner"):
         """
 

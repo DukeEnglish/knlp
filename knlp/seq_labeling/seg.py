@@ -10,6 +10,8 @@
 
 import jieba
 
+from knlp.seq_labeling.hmm.inference import Inference
+
 
 class Segmentor(object):
     """
@@ -33,3 +35,46 @@ class Segmentor(object):
 
         """
         return jieba.lcut(sentence)
+
+    @classmethod
+    def hmm_seg(cls, sentence, model=None):
+        """
+        return result cut by hmm
+
+        Args:
+            sentence: string
+            model:
+
+        Returns: list of string
+
+        """
+        test = Inference()
+        return list(test.cut(sentence))
+
+    @classmethod
+    def crf_seg(cls, sentence, model):
+        """
+        return result cut by crf
+
+        Args:
+            sentence: string
+            model:
+
+        Returns: list of string
+
+        """
+        pass
+
+    @classmethod
+    def trie_seg(cls, sentence, model):
+        """
+        return result cut by trie
+
+        Args:
+            sentence: string
+            model:
+
+        Returns: list of string
+
+        """
+        pass

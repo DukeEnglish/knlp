@@ -1,11 +1,12 @@
-#!/usr/bin/python
+# !/usr/bin/python
 # -*- coding:UTF-8 -*-
 # -----------------------------------------------------------------------#
-# File Name: version.py
+# File Name: constant
 # Author: Junyi Li
 # Mail: 4ljy@163.com
-# Created Time: 2021-01-27
+# Created Time: 2021-03-20
 # Description:
 # -----------------------------------------------------------------------#
+from pathlib import Path
 
-__version__ = "0.2.0"
+KNLP_PATH = f"{Path.cwd()}"

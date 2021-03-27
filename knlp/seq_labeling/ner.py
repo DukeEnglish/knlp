@@ -35,6 +35,5 @@ class NER(object):
         res = []
         words = pseg.cut(sentence)  # jieba默认模式
         for word, flag in words:
-            print('%s %s' % (word, flag))
             res.append((word, flag))
         return res

@@ -16,6 +16,7 @@ def test_all():
         text = f.read()
     res = Knlp(text)
     print("seg_result is", res.seg_result)
+    print("seg_result_hmm is", res.seg_result_hmm)
     print("ner_result is", res.ner_result)
     print("sentiment score is", res.sentiment)
     print("key_words are", res.key_words)
