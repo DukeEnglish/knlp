@@ -44,6 +44,11 @@ def test_all():
 ```
 其他示例使用方法在samples中。所有的训练数据都在data中有示例数据。
 
+# 训练方法
+1. 序列标注的数据处理方法在knlp/seq_labeling/data_helper.py。数据针对的是人民日报的数据。
+    1.1 samples/hmm_samples.py
+
+
 # 参考并致谢
 - snownlp
 - jieba

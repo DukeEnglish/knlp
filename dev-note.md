@@ -18,7 +18,6 @@ TODO
 - 完成基于罗辑回归的文本分类，二分类、多分类以及相关的损失函数
 - 信息提取：text_rank等
 
-
 # 0.2.5
 - 完成基于LSTM, BiLSTM, BiGRU等一堆衍生的DL的序列标注
 https://github.com/rockyzhengwu/FoolNLTK/blob/master/train/README.md
