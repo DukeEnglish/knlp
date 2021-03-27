@@ -38,16 +38,17 @@ class Inference:
         for hidden_state in self._hidden_state_set:
             self.min_emission_pro = min([value for _, value in self._emission_pro[hidden_state].items()]) / 2
 
-    def load_mode(self, state_set=None, transition_pro=None, emission_pro=None, init_state_set=None):
+    def load_mode(self, state_set_save_path=None, transition_pro_save_path=None, emission_pro_save_path=None,
+                  init_state_set_save_path=None, save_format="json"):
         def helper(file_path, save_format="json"):
             if save_format == "json":
                 with open(file_path) as f:
                     return json.load(f)
 
-        state_set = KNLP_PATH + "/knlp/model/state_set.json" if not state_set else state_set
-        transition_pro = KNLP_PATH + "/knlp/model/transition_pro.json" if not transition_pro else transition_pro
-        emission_pro = KNLP_PATH + "/knlp/model/emission_pro.json" if not emission_pro else emission_pro
-        init_state_set = KNLP_PATH + "/knlp/model/init_state_set.json" if not init_state_set else init_state_set
+        state_set = KNLP_PATH + "/knlp/model/state_set.json" if not state_set_save_path else state_set_save_path + "/state_set.json"
+        transition_pro = KNLP_PATH + "/knlp/model/transition_pro.json" if not transition_pro_save_path else transition_pro_save_path + "/transition_pro.json"
+        emission_pro = KNLP_PATH + "/knlp/model/emission_pro.json" if not emission_pro_save_path else emission_pro_save_path + "/emission_pro.json"
+        init_state_set = KNLP_PATH + "/knlp/model/init_state_set.json" if not init_state_set_save_path else init_state_set_save_path + "/init_state_set.json"
         self._state_set = helper(file_path=state_set)
         self._hidden_state_set = self._state_set["hidden_state"]
         self._transition_pro = helper(file_path=transition_pro)
@@ -79,11 +80,9 @@ class Inference:
                 # 这里做的就是将上一个timestep的每个状态到达当前的状态的概率大小计算了一下，得到最大的那个状态以及对应的概率值
                 # 注意max在对数组处理的时候会用数组的第一个元素进行处理，如果第一个值一样，会用第二个进行
                 max_prob, arg_max_prob_hidden_state = max([(
-                    viterbi_matrix[timestep - 1][hidden_state0] * transition_pro[hidden_state0].get(hidden_state,
-                                                                                                    0) *
+                    viterbi_matrix[timestep - 1][hidden_state0] * transition_pro[hidden_state0].get(hidden_state, 0) *  # noqa
                     emission_pro[hidden_state].get(observe_seq[timestep], self.min_emission_pro), hidden_state0) for
-                    hidden_state0 in
-                    hidden_state_set if
+                    hidden_state0 in hidden_state_set if
                     viterbi_matrix[timestep - 1][
                         hidden_state0] > 0])  # 这个for循环 循环的是前一个timestep的所有hidden state. 使用min score 来应对未登录字
 

@@ -90,7 +90,15 @@ class Train:
         self._transition_pro = {}
         self._emission_pro = {}
         self._init_state_set = {}
+        self.vocab_set_path = ""
+        self.training_data_path = ""
+        self.vocab_data = []
+        self.training_data = []
+        if vocab_set_path and training_data_path:
+            self.init_variable(vocab_set_path=vocab_set_path, training_data_path=training_data_path,
+                               test_data_path=test_data_path)
 
+    def init_variable(self, vocab_set_path=None, training_data_path=None, test_data_path=None):
         self.vocab_set_path = KNLP_PATH + "/knlp/data/seg_data/train/pku_vocab.txt" if not vocab_set_path else vocab_set_path
         self.training_data_path = KNLP_PATH + "/knlp/data/seg_data/train/pku_hmm_training_data.txt" if not training_data_path else training_data_path
         # self.test_data_path = KNLP_PATH + "/knlp/data/seg_data/train/pku_hmm_test_data.txt" if not test_data_path else test_data_path
@@ -210,16 +218,17 @@ class Train:
             with open(file_path, "w") as f:
                 json.dump(data, f, ensure_ascii=False)
 
-    def build_model(self, state_set=None, transition_pro=None, emission_pro=None, init_state_set=None):
+    def build_model(self, state_set_save_path=None, transition_pro_save_path=None, emission_pro_save_path=None,
+                    init_state_set_save_path=None):
         """
         依次运行以上的几个函数，然后将获取到的结果保存下来
 
         Returns:
         """
-        state_set = KNLP_PATH + "/knlp/model/state_set.json" if not state_set else state_set
-        transition_pro = KNLP_PATH + "/knlp/model/transition_pro.json" if not transition_pro else transition_pro
-        emission_pro = KNLP_PATH + "/knlp/model/emission_pro.json" if not emission_pro else emission_pro
-        init_state_set = KNLP_PATH + "/knlp/model/init_state_set.json" if not init_state_set else init_state_set
+        state_set = KNLP_PATH + "/knlp/model/state_set.json" if not state_set_save_path else state_set_save_path + "/state_set.json"
+        transition_pro = KNLP_PATH + "/knlp/model/transition_pro.json" if not transition_pro_save_path else transition_pro_save_path + "/transition_pro.json"
+        emission_pro = KNLP_PATH + "/knlp/model/emission_pro.json" if not emission_pro_save_path else emission_pro_save_path + "/emission_pro.json"
+        init_state_set = KNLP_PATH + "/knlp/model/init_state_set.json" if not init_state_set_save_path else init_state_set_save_path + "/init_state_set.json"
         self.save_model(file_path=state_set, data=self.state_set)
         self.save_model(file_path=transition_pro, data=self.transition_pro)
         self.save_model(file_path=emission_pro, data=self.emission_pro)
@@ -230,8 +239,10 @@ if __name__ == '__main__':
     args = sys.argv
     vocab_set_path = None
     training_data_path = None
+
     if len(args) > 1:
         vocab_set_path = args[1]
         training_data_path = args[2]
+
     a = Train(vocab_set_path=vocab_set_path, training_data_path=training_data_path)
     a.build_model()
