@@ -42,6 +42,7 @@ def test_all():
     pred_file_name = f'{abs_path_to_pred_file}'
     print("evaluation file res are", res.evaluation_segment_file(gt_file_name, pred_file_name))
 ```
+其他示例使用方法在samples中。所有的训练数据都在data中有示例数据。
 
 # 参考并致谢
 - snownlp

@@ -39,8 +39,8 @@ def test(sentence):
 
 if __name__ == '__main__':
     vocab_set_path = KNLP_PATH + "/knlp/data/seg_data/train/pku_vocab.txt"
-    training_data_path = KNLP_PATH + "/knlp/data/seg_data/train/pku_hmm_training_data.txt"
-    model_save_path = KNLP_PATH + "/knlp/model"
+    training_data_path = KNLP_PATH + "/knlp/data/seg_data/train/pku_hmm_training_data_sample.txt"
+    model_save_path = KNLP_PATH + "/knlp/model/hmm/"
     hmm_train(vocab_set_path=vocab_set_path, training_data_path=training_data_path, model_save_path=model_save_path)
     hmm_inference_init(model_save_path=model_save_path)
     print(test("大家好，我是你们的好朋友"))

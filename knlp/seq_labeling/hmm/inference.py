@@ -45,10 +45,10 @@ class Inference:
                 with open(file_path) as f:
                     return json.load(f)
 
-        state_set = KNLP_PATH + "/knlp/model/state_set.json" if not state_set_save_path else state_set_save_path + "/state_set.json"
-        transition_pro = KNLP_PATH + "/knlp/model/transition_pro.json" if not transition_pro_save_path else transition_pro_save_path + "/transition_pro.json"
-        emission_pro = KNLP_PATH + "/knlp/model/emission_pro.json" if not emission_pro_save_path else emission_pro_save_path + "/emission_pro.json"
-        init_state_set = KNLP_PATH + "/knlp/model/init_state_set.json" if not init_state_set_save_path else init_state_set_save_path + "/init_state_set.json"
+        state_set = KNLP_PATH + "/knlp/model/hmm/state_set.json" if not state_set_save_path else state_set_save_path + "/state_set.json"
+        transition_pro = KNLP_PATH + "/knlp/model/hmm/transition_pro.json" if not transition_pro_save_path else transition_pro_save_path + "/transition_pro.json"
+        emission_pro = KNLP_PATH + "/knlp/model/hmm/emission_pro.json" if not emission_pro_save_path else emission_pro_save_path + "/emission_pro.json"
+        init_state_set = KNLP_PATH + "/knlp/model/hmm/init_state_set.json" if not init_state_set_save_path else init_state_set_save_path + "/init_state_set.json"
         self._state_set = helper(file_path=state_set)
         self._hidden_state_set = self._state_set["hidden_state"]
         self._transition_pro = helper(file_path=transition_pro)
