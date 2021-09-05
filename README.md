@@ -48,9 +48,12 @@ def test_all():
 
 # sample使用方法
 1. 序列标注的训练
+    
     1.1 首先生成训练数据，序列标注的数据处理方法在knlp/seq_labeling/data_helper.py。数据针对的是人民日报的数据。
+    
     1.2 其次进行训练并使用samples/hmm_sample.py，进行hmm的训练
 2. 信息提取（关键词、关键短语、摘要）
+    
     2.1 samples/IE_sample.py
 
 
