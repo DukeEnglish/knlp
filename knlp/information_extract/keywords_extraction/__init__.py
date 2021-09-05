@@ -1,3 +1,2 @@
-#!coding=utf-8
-from .TextRank4Keyword import TextRank4Keyword
-from .TextRank4Sentence import TextRank4Sentence
+from .textrank_keyword import TextRank4Keyword
+from .textrank_sentence import TextRank4Sentence

@@ -23,7 +23,7 @@ def test_all():
     print("key sentences are", res.key_sentences)
     gt_string = '就读 于 中国人民大学 电视 上 的 电影 节目 项目 的 研究 角色 本人 将 会 参与 配音'
     pred_string = '就读 于 中国 人民 大学 电视 上 的 电影 节目 项 目的 研究 角色 本人 将 会 参与 配音'
-    print("evaluation res are", res.evaluation_segment(gt_string, pred_string))
+    print("seg evaluation res are", res.evaluation_segment(gt_string, pred_string))
 
 
 if __name__ == '__main__':

@@ -1,12 +1,13 @@
-#!/usr/bin/python
+# !/usr/bin/python
 # -*- coding:UTF-8 -*-
 # -----------------------------------------------------------------------#
-# File Name: inference
+# File Name: IE_sample
 # Author: Junyi Li
 # Mail: 4ljy@163.com
-# Created Time: 2021-01-30
+# Created Time: 2021-09-05
 # Description:
 # -----------------------------------------------------------------------#
+
 
 from knlp.information_extract.keywords_extraction import TextRank4Keyword, TextRank4Sentence
 
@@ -14,6 +15,7 @@ from knlp.information_extract.keywords_extraction import TextRank4Keyword, TextR
 def get_keyword(text, window=5, num=20, word_min_len=2, need_key_phrase=True):
     """
     获取文本中的关键词，采用text rank的算法获取
+
     Args:
         text: string
         window: 计算的时候的窗口大小
@@ -57,3 +59,10 @@ def get_key_sentences(text):
     for item in tr4s.get_key_sentences(num=3):
         output.append(item.sentence)
     return output
+
+
+if __name__ == '__main__':
+    with open("knlp/data/pytest_data.txt") as f:
+        text = f.read()
+    print(get_key_sentences(text))
+    print(get_keyword(text))

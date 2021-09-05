@@ -80,7 +80,8 @@ class Inference:
                 # 这里做的就是将上一个timestep的每个状态到达当前的状态的概率大小计算了一下，得到最大的那个状态以及对应的概率值
                 # 注意max在对数组处理的时候会用数组的第一个元素进行处理，如果第一个值一样，会用第二个进行
                 max_prob, arg_max_prob_hidden_state = max([(
-                    viterbi_matrix[timestep - 1][hidden_state0] * transition_pro[hidden_state0].get(hidden_state, 0) *  # noqa
+                    viterbi_matrix[timestep - 1][hidden_state0] * transition_pro[hidden_state0].get(hidden_state,
+                                                                                                    0) *  # noqa
                     emission_pro[hidden_state].get(observe_seq[timestep], self.min_emission_pro), hidden_state0) for
                     hidden_state0 in hidden_state_set if
                     viterbi_matrix[timestep - 1][

@@ -24,11 +24,10 @@ def seg(sentence, function_name="jieba_cut"):
 
     """
     words = []
-    seg_method = getattr(Segmentor, function_name, None)
-    if not seg_method:
-        # TODO raise an exception
-        return None
-    for word in seg_method(sentence):
+    seg = Segmentor()
+    word_list = seg.segment(text=sentence, function_name=function_name)
+
+    for word in word_list:
         word = word.strip()
         if not word:
             continue
@@ -57,3 +56,7 @@ def ner(sentence, function_name="jieba_ner"):
             continue
         word_tags.append(word_tag)
     return word_tags
+
+
+if __name__ == '__main__':
+    print(seg("测试分词的结果是否符合预期"))

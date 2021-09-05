@@ -16,6 +16,20 @@ import sys
 import time
 from functools import wraps
 
+from knlp.common.constant import KNLP_PATH
+
+
+def get_default_stop_words_file():
+    return KNLP_PATH + "/knlp/data/stopwords.txt"
+
+
+class AttrDict(dict):
+    """Dict that can get attribute by dot"""
+
+    def __init__(self, *args, **kwargs):
+        super(AttrDict, self).__init__(*args, **kwargs)
+        self.__dict__ = self
+
 
 def funtion_time_cost(function):
     """

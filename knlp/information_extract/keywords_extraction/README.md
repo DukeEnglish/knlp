@@ -1,3 +1,6 @@
+参考了letiantian的代码进行的重构。
+https://github.com/letiantian/TextRank4ZH/blob/master/textrank4zh
+
 资料：
 
 pagerank: https://www.letiantian.me/2014-06-10-pagerank/
@@ -30,7 +33,7 @@ w1,w2,w3,w4,w5,…,wn
 
 摘要这里，是计算句子之间的相似度作为权重，这里有点扯淡，应该直接使用句子中包含的单词的权重，来sum平均作为总权重吧。
 
-## 引入关键词表
+## 引入关键词表label
 
 1. 对文件名的切词使用搜索模式，或者考虑直接进行全排列，然后利用label词表进行遍历，存在即返回
 jieba.cut_for_search
