@@ -13,6 +13,8 @@ pkg中提供了inference这个方法，主要是调用各种能力进行inferenc
 
 和现有的NLP工具包的不同点在于，本pkg提供深度学习相关的功能，并且面向中文开发，且功能很基础，适合于based on这个进行二次改造。
 
+最关键的是，这个工具包会配置有详细的文档，提供从训练到infernece以及evaluation的全套脚手架，堪称学习利器
+
 # 安装方式
 ```
 pip install knlp
