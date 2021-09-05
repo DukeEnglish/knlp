@@ -61,8 +61,27 @@ def get_key_sentences(text):
     return output
 
 
+def get_key_sentences_by_keyword(text):
+    """
+    获取文本中的关键句子
+    Args:
+        text: string
+
+    Returns: list of string
+
+    """
+    tr4s = TextRank4Sentence()
+    tr4s.analyze(text=text, lower=True, edge_source='all_filters')
+
+    output = []
+    for item in tr4s.get_key_sentences_by_keywords(num=3):
+        output.append(item.sentence)
+    return output
+
+
 if __name__ == '__main__':
     with open("knlp/data/pytest_data.txt") as f:
         text = f.read()
     print(get_key_sentences(text))
+    print(get_key_sentences_by_keyword(text))
     print(get_keyword(text))

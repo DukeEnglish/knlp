@@ -26,7 +26,7 @@ class TextRank4Keyword(TextRank):
     ref https://github.com/letiantian/TextRank4ZH/blob/master/textrank4zh/
     """
 
-    def __init__(self, stop_words_file=get_default_stop_words_file(), label_set=None,
+    def __init__(self, stop_words_file=get_default_stop_words_file(), private_vocab=None,
                  allow_speech_tags=allow_speech_tags,
                  delimiters="|".join(sentence_delimiters)):
         """
@@ -37,7 +37,7 @@ class TextRank4Keyword(TextRank):
             allow_speech_tags: 要保留的词性
             delimiters: 默认值是`?!;？！。；…\n`，用来将文本拆分为句子。
         """
-        super().__init__(stop_words_file=stop_words_file, label_set=label_set,
+        super().__init__(stop_words_file=stop_words_file, private_vocab=private_vocab,
                          allow_speech_tags=allow_speech_tags,
                          delimiters=delimiters)
 

@@ -236,6 +236,7 @@ class Train:
 
 
 if __name__ == '__main__':
+    # input path for vacab and training data
     args = sys.argv
     vocab_set_path = None
     training_data_path = None

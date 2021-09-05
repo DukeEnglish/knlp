@@ -8,7 +8,7 @@
 # Description:
 # -----------------------------------------------------------------------#
 
-import jieba.posseg as pseg
+import jieba
 
 from knlp.common.constant import allow_speech_tags
 from knlp.seq_labeling.hmm.inference import Inference
@@ -22,7 +22,8 @@ class Segmentor(object):
 
     """
 
-    def __init__(self, stop_words_file=get_default_stop_words_file(), allow_speech_tags=allow_speech_tags):
+    def __init__(self, stop_words_file=get_default_stop_words_file(), allow_speech_tags=allow_speech_tags,
+                 private_vocab=None):
         """
         init some necessary params for this class
 
@@ -32,10 +33,18 @@ class Segmentor(object):
         """
         self.stop_words = set()
         self.default_speech_tag_filter = allow_speech_tags
+        self.private_vacab = private_vocab
+        if self.private_vacab:
+            for word in self.private_vacab:
+                jieba.add_word(word, freq=None, tag=None)
 
         with open(stop_words_file, 'r') as f:
             for word in f:
                 self.stop_words.add(word.strip())
+
+    @staticmethod
+    def del_word(word):
+        jieba.del_word(word)
 
     def segment(self, text, function_name="jieba_cut", lower=True, use_stop_words=False, use_speech_tags_filter=False):
         """
@@ -59,10 +68,10 @@ class Segmentor(object):
         if function_name == "jieba_cut":  # 目前只支持jieba的词性标注
             if use_speech_tags_filter:
                 word_list = [w for w in word_list if w.flag in self.default_speech_tag_filter]
+                # 去除特殊符号
+                word_list = [w.word.strip() for w in word_list if w.flag != 'x']
             else:
-                word_list = [w for w in word_list]
-            # 去除特殊符号
-            word_list = [w.word.strip() for w in word_list if w.flag != 'x']
+                word_list = [w.word.strip() for w in word_list]
 
         word_list = [word for word in word_list if len(word) > 0]
 
@@ -85,7 +94,7 @@ class Segmentor(object):
         Returns: list of string
 
         """
-        return pseg.cut(sentence)
+        return jieba.posseg.cut(sentence)
 
     @classmethod
     def hmm_seg(cls, sentence, model=None):

@@ -73,7 +73,7 @@ class SentenceSegmentation(object):
 class Segmentation(object):
 
     def __init__(self, stop_words_file=get_default_stop_words_file(), allow_speech_tags=allow_speech_tags,
-                 delimiters="|".join(sentence_delimiters)):
+                 delimiters="|".join(sentence_delimiters), private_vocab=None):
         """
 
         Args:
@@ -82,7 +82,7 @@ class Segmentation(object):
             delimiters:
         """
 
-        self.ws = WordSegmentation(stop_words_file=stop_words_file, allow_speech_tags=allow_speech_tags)
+        self.ws = WordSegmentation(stop_words_file=stop_words_file, allow_speech_tags=allow_speech_tags, private_vocab=private_vocab)
         self.ss = SentenceSegmentation(delimiters=delimiters)
 
     def segment(self, text, lower=False):
