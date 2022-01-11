@@ -150,10 +150,14 @@ class Train:
         }
         for idx, line in enumerate(self.training_data):
             line = line.strip()
+            total_lines = len(self.training_data)
             if not line:
                 continue
             line = line.strip().split("\t")  # 获取到当前正在统计的那个标签
-            next_line = self.training_data[idx + 1].strip()
+            if (idx + 1) < total_lines:
+                next_line = self.training_data[idx + 1].strip()  # 增加对访问下标超限的判断
+            else:
+                continue
             if not next_line:
                 continue
             next_line = self.training_data[idx + 1].strip().split("\t")  # 获取下一个标签
