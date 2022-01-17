@@ -148,8 +148,8 @@ class Train:
             "M": defaultdict(int),
             "E": defaultdict(int),
         }
-        for idx, line in enumerate(self.training_data):
-            line = line.strip()
+        for idx in range(len(self.training_data) - 1):
+            line = self.training_data[idx].strip()
             if not line:
                 continue
             line = line.strip().split("\t")  # 获取到当前正在统计的那个标签
@@ -216,7 +216,7 @@ class Train:
     def save_model(file_path, data, format="json"):
         if format == "json":
             with open(file_path, "w") as f:
-                json.dump(data, f, ensure_ascii=False)
+                json.dump(data, f, ensure_ascii=False, indent=2)
 
     def build_model(self, state_set_save_path=None, transition_pro_save_path=None, emission_pro_save_path=None,
                     init_state_set_save_path=None):
