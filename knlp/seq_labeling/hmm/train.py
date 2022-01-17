@@ -148,16 +148,12 @@ class Train:
             "M": defaultdict(int),
             "E": defaultdict(int),
         }
-        for idx, line in enumerate(self.training_data):
-            line = line.strip()
-            total_lines = len(self.training_data)
+        for idx in range(len(self.training_data) - 1):
+            line = self.training_data[idx].strip()
             if not line:
                 continue
             line = line.strip().split("\t")  # 获取到当前正在统计的那个标签
-            if (idx + 1) < total_lines:
-                next_line = self.training_data[idx + 1].strip()  # 增加对访问下标超限的判断
-            else:
-                continue
+            next_line = self.training_data[idx + 1].strip()
             if not next_line:
                 continue
             next_line = self.training_data[idx + 1].strip().split("\t")  # 获取下一个标签
@@ -220,7 +216,7 @@ class Train:
     def save_model(file_path, data, format="json"):
         if format == "json":
             with open(file_path, "w") as f:
-                json.dump(data, f, ensure_ascii=False)
+                json.dump(data, f, ensure_ascii=False, indent=2)
 
     def build_model(self, state_set_save_path=None, transition_pro_save_path=None, emission_pro_save_path=None,
                     init_state_set_save_path=None):
